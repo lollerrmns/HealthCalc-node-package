@@ -9,6 +9,6 @@
   "author": "Elias, Lidiane, Flaísa, Leonardo, Tiago",
   "license": "ISC",
   "dependencies": {
-    "healthcalc-node-package": "^2.0.0"
+    "healthcalc-node-package": "^3.0.1"
   }
 }

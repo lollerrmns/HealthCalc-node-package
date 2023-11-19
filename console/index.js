@@ -1,5 +1,5 @@
 const readline = require('readline');
-const { CalculadoraIMC, CalculadoraMacroNutrientes } = require('healtcalc-node-package');
+const { CalculadoraIMC, CalculadoraMacroNutrientes } = require('healthcalc-node-package');
 
 const main = (peso, altura) => {
   const calculadoraIMC = new CalculadoraIMC();
