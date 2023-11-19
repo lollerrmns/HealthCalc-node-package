@@ -4,7 +4,7 @@
   "description": "Pacote para calculo de IMC",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "./node_modules/.bin/esbuild ./src/index.js --format=esm --bundle --outfile=./dist/index.js --platform=node --target=node16.3 --minify",
+    "build": "esbuild ./lib/index.js --format=esm --bundle --outfile=./dist/index.js --platform=node --target=node16.3 --minify",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
   },
@@ -15,7 +15,7 @@
   "keywords": [
     "imc"
   ],
-  "author": "Elias, Lidiane, Flaísa",
+  "author": "Elias, Lidiane, Flaísa, Leonardo, Tiago",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lollerrmns/HealthCalc-node-package/issues"

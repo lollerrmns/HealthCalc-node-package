@@ -1,0 +1,14 @@
+{
+  "name": "healthcalc-node-console",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Elias, Lidiane, Flaísa, Leonardo, Tiago",
+  "license": "ISC",
+  "dependencies": {
+    "healthcalc-node-package": "^2.0.0"
+  }
+}

@@ -1,20 +1,22 @@
-const { MacroNutrientes, ValueException } = require('../src/index');
+const { CalculadoraMacroNutrientes } = require('../lib/index');
 
 describe('Testes da Calculadora de IMC', () => {
   let calculadoraMacroNutrientes;
 
   beforeEach(() => {
-    calculadoraMacroNutrientes = new MacroNutrientes();
+    calculadoraMacroNutrientes = new CalculadoraMacroNutrientes();
   });
 
   test('calcularMacroNutrientes deve calcular os valores de cutting', () => {
-    expect(calculadoraMacroNutrientes.calcularMacronutrientes(66,"cutting")).toStrictEqual({"carboidratos": 132, "gordura": 66, "proteinas": 132});
+    expect(calculadoraMacroNutrientes.calcularMacroNutrientes(66,"cutting")).toStrictEqual({"carboidratos": 132, "gordura": 66, "proteinas": 132});
   });
+  
   test('calcularMacroNutrientes deve calcular os valores de bulking', () => {
-    expect(calculadoraMacroNutrientes.calcularMacronutrientes(66,"bulking")).toStrictEqual({"carboidratos": 264, "gordura": 66, "proteinas": 132});
+    expect(calculadoraMacroNutrientes.calcularMacroNutrientes(66,"bulking")).toStrictEqual({"carboidratos": 264, "gordura": 66, "proteinas": 132});
   });
+
   test('calcularMacroNutrientes deve calcular os valores de keep', () => {
-    expect(calculadoraMacroNutrientes.calcularMacronutrientes(66,"keep")).toStrictEqual({"carboidratos": 330, "gordura": 66, "proteinas": 132});
+    expect(calculadoraMacroNutrientes.calcularMacroNutrientes(66,"keep")).toStrictEqual({"carboidratos": 330, "gordura": 66, "proteinas": 132});
   });
-}
-);
+
+});

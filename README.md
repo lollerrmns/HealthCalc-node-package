@@ -1,42 +1,67 @@
+
 # HealthCalc-node: Calculadora de IMC (Índice de Massa Corporal) em Node.js
+Este é um pacote Node.js simples que permite calcular o IMC e Macro Nutrientes realizado para a disciplina ***Projeto Integrado em Engenharia de Software*** do curso de pós graduação em ***Engenharia de Software*** da PUC Minas.
 
-Este é um pacote Node.js simples que permite calcular o IMC com base no peso e na altura fornecidos.
+## Autores
+ - Elias Melo
+ - Lidiane Alves
+ - Flaísa Carolina
+ - Leonardo Garcia
+ - Tiago Borges
 
-## Instalação
+## Requisitos
+ - Node 20.9.0
+ - Docker *(Opcional)*
+ - Make *(Opcional)*
+
+## Executar com Docker
+Caso você não tenha o Nodejs instalado na sua máquina e queira executar através de um container docker, você pode executar o comando abaixo para ter acesso ao container com o ambiente pré configurado.
+```bash
+# docker-compose run -w /application healthcalc-node /bin/bash
+```
+
+### Comandos Makefile
+Caso você tenha um SO compatível e o Make instalado, você pode utilizar os comandos abaixo para facilitar a utilização:
+```bash
+# make login // acessa o bash do container
+# make build // faz o build da lib
+# make test // executa os testes unitários
+# make console // executa a aplicação console para testar a lib
+```
+Quaisquer dúvidas sobre o que cada comando make executa pode ser consulta no arquivo ***Makefile*** na raiz do projeto.
+
+## Instalação do pacote
+
 Para instalar o pacote, você pode usar o npm:
+```bash
+npm  install  healthcalc-node-package
+```
+
+## Utilização
+Aqui  está  um  exemplo  de  como  você  pode  usar  este  pacote  em  seu  projeto  Node.js:
 
 ```bash
-npm install healthcalc-node
+const { CalculadoraIMC, CalculadoraMacroNutrientes } = require('healthcalc-node-package');
 
-Uso
+const peso = 87;
+const altura = 1.82;
 
-Aqui está um exemplo de como você pode usar este pacote em seu projeto Node.js:
+const calculadoraIMC = new  CalculadoraIMC();
 
-javascript
+const imc = calculadoraIMC.calcularIMC(peso, altura);
+// 26.26494384736143
 
-const healthCalc = require('healthcalc-node');
+const classificacaoIMC = calculadoraIMC.classificacaoIMC(imc);
+// SOBREPESO
 
-// Fornecer peso em quilogramas e altura em metros
-const peso = 70;
-const altura = 1.75;
+const calculadoraMacroNutrientes = new  CalculadoraMacroNutrientes();
 
-const imc = healthCalc.calcularIMC(peso, altura);
+const macroNutrientesCutting = calculadoraMacroNutrientes.calcularMacroNutrientes(peso, "cutting");
+// { proteinas: 174, gordura: 87, carboidratos: 174 }
 
-console.log(`Seu IMC é: ${imc}`);
+const macroNutrientesBulking = calculadoraMacroNutrientes.calcularMacroNutrientes(peso, "bulking");
+// { proteinas: 174, gordura: 87, carboidratos: 348}
 
-API
-calcularIMC(peso, altura)
-
-Calcula o IMC com base no peso (em quilogramas) e altura (em metros) fornecidos.
-
-    peso (number): O peso da pessoa em quilogramas.
-    altura (number): A altura da pessoa em metros.
-
-Retorna o valor do IMC calculado.
-Exemplo de Saída
-
-Seu IMC é: 22.86
-
-Esperamos que este pacote seja útil para você. Se tiver alguma dúvida ou encontrar algum problema, não hesite em entrar em contato.
-
-Certifique-se de substituir `seu-usuario/seu-repo` pelo link real para o repos
+const macroNutrientesKeep = calculadoraMacroNutrientes.calcularMacroNutrientes(peso, "keep");
+// { proteinas: 174, gordura: 87, carboidratos: 435}
+```
